@@ -20,7 +20,8 @@ module Scripts
     attr_reader :component_name, :component_path
 
     def test_create_component_runs_successfully
-      assert system("./scripts/create_component.sh #{component_name} #{component_path} >/dev/null 2>&1")
+      pp system("./scripts/create_component.sh #{component_name} #{component_path}")
+      pp $1
       assert File.exist?("#{component_path}/lib/#{component_name}.rb")
     end
 
