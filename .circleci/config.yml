@@ -1,0 +1,38 @@
+version: 2.1
+
+####### YAML ANCHORS #######
+
+attach-to-workspace: &attach-to-workspace
+  attach_workspace:
+    at: /root
+
+####### CIRCLECI COMMANDS #######
+
+commands:
+  install-gems:
+    steps:
+      - checkout
+      - run:
+          name: Install Rails & Rubocop
+          command: |
+            gem install rails -v 6.1.5 && gem install rubocop -v 1.29
+
+####### CIRCLECI JOBS #######
+
+jobs:
+  root:
+    resource_class: small
+    docker:
+      - image: ruby:3.0.1
+    steps:
+      - install-gems
+      - run:
+          name: "Run Tests"
+          command: ruby -Itest test/template/plugin/generator_test.rb && ruby -Itest test/scripts/create_component_test.rb
+
+####### CIRCLECI WORKFLOWS #######
+
+workflows:
+  root-workflow:
+    jobs:
+      - root
