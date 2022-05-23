@@ -23,7 +23,7 @@ jobs:
   root:
     resource_class: small
     docker:
-      - image: ruby:2.7.6
+      - image: ruby:3.0.1
     steps:
       - install-gems
       - run:
