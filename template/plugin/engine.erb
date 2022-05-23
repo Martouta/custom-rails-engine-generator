@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+require 'rails'
+require 'rails/test_unit/railtie'
+
+<% engine_name = ActiveSupport::Inflector.camelize(name, true) %>
+
+module <%= engine_name %>
+  class Engine < ::Rails::Engine
+    isolate_namespace <%= engine_name %>
+
+    config.time_zone = 'UTC'
+
+    config.generators do |generators|
+      generators.test_framework :test_unit
+    end
+
+    config.after_initialize do
+      routes.default_url_options[:host] = Rails.application.routes.default_url_options[:host]
+    end
+  end
+end

@@ -1,0 +1,6 @@
+# frozen_string_literal: true
+
+module <%= ActiveSupport::Inflector.camelize(name, true) %>
+  require '<%= name %>/version'
+  require '<%= name %>/engine'
+end

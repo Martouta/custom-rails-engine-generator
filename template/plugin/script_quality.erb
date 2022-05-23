@@ -1,0 +1,50 @@
+#!/bin/bash
+
+exit_code=0
+
+dirname=$(dirname ${BASH_SOURCE[0]})
+
+pushd $dirname/.. &> /dev/null
+component_path=$(pwd)
+
+utils_path=$component_path/../../lib/utils
+
+if command -v greadlink &> /dev/null
+then
+    utils_path=$(greadlink -f $utils_path)
+else
+    utils_path=$(readlink -f $utils_path)
+fi
+
+echo "
+********************************************************************************
+*** Running code quality checkers for <%= ActiveSupport::Inflector.camelize(name, true) %> component
+********************************************************************************"
+
+echo "
+********************** Running Rubocop **********************
+"
+rubocop --config $component_path/../../.rubocop.yml $component_path
+((exit_code+=$?))
+
+echo "
+********************** Running Reek **********************
+"
+reek --config $utils_path/.reek $component_path
+((exit_code+=$?))
+
+echo "
+********************** Running Brakeman **********************
+"
+brakeman -p $component_path -o /dev/stdout
+((exit_code+=$?))
+
+echo "
+********************** Running Rails Best Practices **********************
+"
+rails_best_practices $component_path --config $utils_path/.rails_best_practices.yml
+((exit_code+=$?))
+
+popd &> /dev/null
+
+exit $exit_code

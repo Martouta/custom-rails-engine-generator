@@ -1,0 +1,24 @@
+#!/bin/bash
+
+exit_code=0
+
+dirname=$(dirname ${BASH_SOURCE[0]})
+
+pushd $dirname/.. &> /dev/null
+component_path=$(pwd)
+
+echo "
+********************************************************************************
+*** Running Tests for <%= ActiveSupport::Inflector.camelize(name, true) %> component
+********************************************************************************"
+
+spring stop &> /dev/null
+
+BUNDLE_FROZEN=true bundle install &> /dev/null
+
+COMPONENT_NAME=<%= name %> PS_HOST=0.0.0.0 RAILS_ENV=test rails test $component_path
+((exit_code+=$?))
+
+popd &> /dev/null
+
+exit $exit_code

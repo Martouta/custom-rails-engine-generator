@@ -1,0 +1,27 @@
+# frozen_string_literal: true
+
+require_relative 'lib/<%= name %>/version'
+
+Gem::Specification.new do |spec|
+  spec.required_ruby_version = '~> 3.1.0'
+
+  spec.name        = '<%= name %>'
+  spec.version     = <%= ActiveSupport::Inflector.camelize(name, true) %>::VERSION
+  spec.authors     = ['Marta Noya']
+  spec.summary     = 'CHANGEME: Summary of <%= name %>'
+
+  spec.files = Dir['{app,config,db,lib}/**/*', 'Rakefile']
+
+  spec.add_dependency 'rails', '~> 7.0.2.4'
+
+  spec.add_development_dependency 'brakeman', '~> 5.2.3'
+  spec.add_development_dependency 'pry-byebug', '~> 3.9.0'
+  spec.add_development_dependency 'rails_best_practices', '~> 1.23.1'
+  spec.add_development_dependency 'reek', '~> 6.1.1'
+  spec.add_development_dependency 'rubocop', '~> 1.29.1'
+  spec.add_development_dependency 'rubocop-rails', '~> 2.14.2'
+
+  spec.metadata = {
+    'rubygems_mfa_required' => 'true'
+  }
+end
