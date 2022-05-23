@@ -11,9 +11,9 @@ module Web
         include ActiveSupport::Testing::Assertions
 
         def setup
-          @web_root_path = File.expand_path("#{__dir__}/../..")
+          root_path = File.expand_path("#{__dir__}/../../..")
           @component_name = 'generated_component'
-          @component_path = "#{web_root_path}/tmp/#{component_name}"
+          @component_path = "#{root_path}/test/tmp/#{component_name}"
 
           create_folders
         end
@@ -22,7 +22,7 @@ module Web
           FileUtils.remove_dir(component_path, true)
         end
 
-        attr_reader :web_root_path, :component_name, :component_path
+        attr_reader :component_name, :component_path
 
         def generator
           @generator ||= Web::Template::Plugin::Generator.new(component_name, component_path)
