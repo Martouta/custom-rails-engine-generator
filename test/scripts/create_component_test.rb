@@ -25,7 +25,7 @@ module Scripts
     end
 
     def test_create_invalid_component_returns_failure
-      refute system("./scripts/create_component.sh 111invalid >/dev/null 2>&1")
+      refute system('./scripts/create_component.sh 111invalid >/dev/null 2>&1')
       refute File.directory?(component_path)
     end
   end
