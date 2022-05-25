@@ -6,7 +6,9 @@ This repository is extracted from that project.
 
 The purpose of this is not to be bullet-proof, but just a handy way to create components (rails engines) just as custom as I want them. I'm sure that more people can adapt this to your needs.
 
-To run this, I am assuming that you have Rails installed. But you do not need to run this script from the path where you have the rails project.
+The dependencies are Rails and Rubocop. Install them with `bundle install`.
+Feel free to do it without Rubocop if you prefer to do so.
+You do not need to run this script from the path where you have the Rails project.
 
 Run it like:
 ```
