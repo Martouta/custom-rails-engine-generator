@@ -15,7 +15,11 @@ commands:
       - run:
           name: Install Rails & Rubocop
           command: |
-            gem install rails -v 6.1.5 && gem install rubocop -v 1.29
+            bundle install
+          environment:
+            BUNDLE_RETRY: 3
+            BUNDLE_JOBS: 3
+            BUNDLE_FROZEN: true
 
 ####### CIRCLECI JOBS #######
 
@@ -23,7 +27,7 @@ jobs:
   root:
     resource_class: small
     docker:
-      - image: ruby:3.0.1
+      - image: ruby:3.1.0
     steps:
       - install-gems
       - run:
