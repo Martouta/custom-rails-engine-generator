@@ -1,11 +1,5 @@
 version: 2.1
 
-####### YAML ANCHORS #######
-
-attach-to-workspace: &attach-to-workspace
-  attach_workspace:
-    at: /root
-
 ####### CIRCLECI COMMANDS #######
 
 commands:
