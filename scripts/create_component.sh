@@ -36,6 +36,7 @@ rm -rf $component_path/.git \
        $component_path/test/mailers \
        $component_path/test/helpers
 rm $component_path/README.md
+rm $component_path/MIT-LICENSE
 
 ruby -r $web_path/template/plugin/generator.rb \
      -e "Web::Template::Plugin::Generator.new('$1', '$component_path').call!"
