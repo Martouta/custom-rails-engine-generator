@@ -26,7 +26,7 @@ mkdir -p $component_path/scripts
 
 rm -rf $component_path/.git \
        $component_path/app/assets \
-       $component_path/app/views/layouts \
+       $component_path/app/views \
        $component_path/app/helpers \
        $component_path/lib/tasks \
        $component_path/test/dummy \
