@@ -144,7 +144,7 @@ GEM
     rake (13.0.6)
     regexp_parser (2.6.1)
     rexml (3.2.5)
-    rubocop (1.40.0)
+    rubocop (1.41.1)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
@@ -154,7 +154,7 @@ GEM
       rubocop-ast (>= 1.23.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.24.0)
+    rubocop-ast (1.24.1)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
     thor (1.2.1)
@@ -174,7 +174,7 @@ PLATFORMS
 
 DEPENDENCIES
   rails (~> 7.0.4)
-  rubocop (~> 1.40)
+  rubocop (~> 1.41)
 
 BUNDLED WITH
    2.1.4
