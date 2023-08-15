@@ -67,6 +67,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
+    base64 (0.1.1)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -148,7 +149,8 @@ GEM
     rake (13.0.6)
     regexp_parser (2.8.1)
     rexml (3.2.6)
-    rubocop (1.55.1)
+    rubocop (1.56.0)
+      base64 (~> 0.1.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -179,7 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   rails (~> 7.0.7)
-  rubocop (~> 1.55)
+  rubocop (~> 1.56)
 
 BUNDLED WITH
    2.1.4
