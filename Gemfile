@@ -3,5 +3,5 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails', '~> 7.1.3', '>= 7.1.3.1'
+gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
 gem 'rubocop', '~> 1.62'
